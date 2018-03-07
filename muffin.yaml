@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: muffin
+spec:
+  containers:
+  - name: muffin
+    image: errm/muffins
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8080
+        httpHeaders:
+        - name: Host
+          value: muffins.cupcakes.org
+      periodSeconds: 1
